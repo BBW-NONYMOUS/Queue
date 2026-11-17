@@ -1,0 +1,11 @@
+# Copy outside the project on the designated host. Restrict this file with OS ACLs.
+# Fill the generated backup-user password; never commit the configured copy.
+[client]
+host=campus-db
+port=3306
+protocol=tcp
+user=queue_backup
+password=
+ssl-mode=VERIFY_IDENTITY
+ssl-ca=C:/QueueClearanceSecrets/campus-ca.pem
+# The host must match a certificate SAN. Use forward slashes for Windows paths.

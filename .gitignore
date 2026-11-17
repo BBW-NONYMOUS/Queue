@@ -1,0 +1,17 @@
+/target/
+/app.properties
+/logs/
+/backups/
+/reports/
+/nbproject/private/
+*.log
+*.jks
+*.p12
+*.dump
+/.tools/
+
+/backup-client.cnf
+
+/dist/
+/mysql-it.properties
+/database/test/mysql-it.properties

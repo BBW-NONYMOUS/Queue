@@ -1,0 +1,12 @@
+# Use only a separate, disposable Oracle MySQL 8.4 server.
+# Copy outside version control. The mysql-it profile fails if this file is absent.
+mysql.it.confirm=RECREATE_queue_clearance_test_ON_ISOLATED_SERVER
+# No database in this URL. Configure the JVM truststore for the test server CA.
+mysql.it.url=jdbc:mysql://localhost:3306/?sslMode=VERIFY_IDENTITY&connectionTimeZone=%2B08:00&forceConnectionTimeZoneToSession=true&connectTimeout=5000&socketTimeout=20000
+# Obtain this from SELECT @@server_uuid on the ISOLATED server, not campus MySQL.
+mysql.it.expectedServerUuid=
+mysql.it.owner.username=queue_it_owner
+mysql.it.owner.password=
+mysql.it.client.username=queue_it_app
+mysql.it.client.password=
+mysql.it.client.grantHost=localhost

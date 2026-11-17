@@ -1,0 +1,9 @@
+package model;
+
+import java.util.List;
+
+public record Page<T>(List<T> items, int number, int size, boolean hasNext) {
+    public Page {
+        items = List.copyOf(items);
+    }
+}

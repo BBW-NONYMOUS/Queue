@@ -1,0 +1,37 @@
+# Copy to app.properties beside the application; never put credentials in the JAR.
+# Read -Dqueueclearance.config=<path>, default ./app.properties.
+app.name=Queue-Clearance
+app.timezone=Asia/Manila
+app.currency=PHP
+app.poll.interval.ms=3000
+ui.font.family=Segoe UI
+ui.font.size=14
+
+# Host PC: replace 127.0.0.1 with its LAN hostname on client installations.
+# Connector/J version and MySQL SERVER version are independent; server must be 8.4.
+db.url=jdbc:mysql://127.0.0.1:3306/queue_clearance?sslMode=VERIFY_IDENTITY&connectionTimeZone=%2B08:00&forceConnectionTimeZoneToSession=true&preserveInstants=true&connectTimeout=5000&socketTimeout=15000&allowMultiQueries=false&characterEncoding=UTF-8
+db.username=queue_app
+# Required deployment-specific secret. Empty must fail configuration validation.
+db.password=
+# JVM truststore must trust the host certificate for VERIFY_IDENTITY.
+db.pool.maximumPoolSize=5
+db.pool.minimumIdle=1
+db.pool.connectionTimeoutMs=5000
+db.pool.validationTimeoutMs=3000
+db.pool.idleTimeoutMs=600000
+db.pool.maxLifetimeMs=1500000
+db.transaction.isolation=TRANSACTION_READ_COMMITTED
+db.session.timeZone=+08:00
+auth.bcrypt.cost=12
+report.output.directory=reports
+backup.output.directory=backups
+# A privileged backup credential must never be placed in this client file.
+
+# Unicode TrueType font embedded by OpenPDF.
+report.font.file=C:/Windows/Fonts/segoeui.ttf
+# Enable ONLY on the designated host/admin workstation. Credentials live in an
+# OS-protected MySQL option file, never in this file or the process command line.
+backup.enabled=false
+backup.mysqldump.path=C:/Program Files/MySQL/MySQL Server 8.4/bin/mysqldump.exe
+backup.options.file=C:/QueueClearanceSecrets/backup-client.cnf
+backup.timeout.seconds=600
